@@ -1,0 +1,243 @@
+<!-- Payments Page -->
+<div class="drawer-content flex flex-col min-h-screen">
+  <!-- Header -->
+  <include src="./partials/header.html"></include>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-4 lg:p-8">
+    <!-- Page Header -->
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
+      <div>
+        <h1 class="text-2xl lg:text-3xl font-bold mb-2">Payments</h1>
+        <p class="text-base opacity-70">Manage subscriptions and transactions</p>
+      </div>
+      <div class="flex gap-3">
+        <button class="btn btn-outline btn-md">
+          <i class="ph ph-file-export"></i> Export
+        </button>
+        <button class="btn btn-primary btn-md">
+          <i class="ph ph-plus"></i> Record Payment
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-success/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-currency-dollar text-xl text-success"></i>
+              </div>
+              <h3 class="text-2xl font-bold">$45.2K</h3>
+              <p class="text-sm opacity-70">Total Revenue</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-arrow-up"></i> 12%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-primary/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-credit-card text-xl text-primary"></i>
+              </div>
+              <h3 class="text-2xl font-bold">89</h3>
+              <p class="text-sm opacity-70">New Members</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-arrow-up"></i> 8%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-warning/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-warning text-xl text-warning"></i>
+              </div>
+              <h3 class="text-2xl font-bold">24</h3>
+              <p class="text-sm opacity-70">Pending</p>
+            </div>
+            <div class="text-right">
+              <div class="text-warning text-sm font-bold">
+                <i class="ph ph-check-circle"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-error/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-chalkboard text-xl text-error"></i>
+              </div>
+              <h3 class="text-2xl font-bold">$2.1K</h3>
+              <p class="text-sm opacity-70">Unpaid</p>
+            </div>
+            <div class="text-right">
+              <div class="text-error text-sm font-bold">
+                <i class="ph ph-arrow-down"></i> 3%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payments Table -->
+    <div class="card glass-card shadow-xl mb-8">
+      <div class="card-body">
+        <div class="flex flex-col sm:flex-row justify-between gap-4 mb-6">
+          <div class="form-control">
+            <input type="text" placeholder="Search payments..." class="input input-bordered w-full sm:w-64" />
+          </div>
+          <div class="flex gap-2">
+            <select class="select select-bordered w-full sm:w-auto">
+              <option>All Status</option>
+              <option>Paid</option>
+              <option>Pending</option>
+              <option>Failed</option>
+            </select>
+            <select class="select select-bordered w-full sm:w-auto">
+              <option>All Months</option>
+              <option>January</option>
+              <option>February</option>
+              <option>March</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="table w-full">
+            <thead>
+              <tr>
+                <th>Member</th>
+                <th>Plan</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Method</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-medium">Sarah Chen</td>
+                <td>Premium</td>
+                <td class="text-success">$149</td>
+                <td>Feb 14, 2026</td>
+                <td><span class="badge badge-success">Paid</span></td>
+                <td>Visa ****4242</td>
+                <td>
+                  <button class="btn btn-ghost btn-xs"><i class="ph ph-eye"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium">Mike Ross</td>
+                <td>Basic</td>
+                <td class="text-success">$79</td>
+                <td>Feb 13, 2026</td>
+                <td><span class="badge badge-success">Paid</span></td>
+                <td>Mastercard ****8899</td>
+                <td>
+                  <button class="btn btn-ghost btn-xs"><i class="ph ph-eye"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium">Emma Watson</td>
+                <td>Elite</td>
+                <td class="text-warning">$249</td>
+                <td>Feb 12, 2026</td>
+                <td><span class="badge badge-warning">Pending</span></td>
+                <td>PayPal</td>
+                <td>
+                  <button class="btn btn-ghost btn-xs"><i class="ph ph-eye"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium">John Smith</td>
+                <td>Basic</td>
+                <td class="text-error">$79</td>
+                <td>Feb 01, 2026</td>
+                <td><span class="badge badge-error">Failed</span></td>
+                <td>Visa ****1234</td>
+                <td>
+                  <button class="btn btn-ghost btn-xs"><i class="ph ph-eye"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td class="font-medium">Tom Baker</td>
+                <td>Elite</td>
+                <td class="text-success">$249</td>
+                <td>Jan 30, 2026</td>
+                <td><span class="badge badge-success">Paid</span></td>
+                <td>Apple Pay</td>
+                <td>
+                  <button class="btn btn-ghost btn-xs"><i class="ph ph-eye"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex justify-between items-center mt-6">
+          <p class="text-sm opacity-70">Showing 1-5 of 89 payments</p>
+          <div class="join">
+            <button class="join-item btn">«</button>
+            <button class="join-item btn btn-active">1</button>
+            <button class="join-item btn">2</button>
+            <button class="join-item btn">3</button>
+            <button class="join-item btn">»</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Revenue Chart -->
+    <div class="card glass-card shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title text-xl mb-6">Revenue Overview</h2>
+        <div class="h-64 flex items-end justify-between gap-2 px-4">
+          <div class="w-full bg-success/20 rounded-t-lg relative group">
+            <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-base-100 px-2 py-1 rounded text-sm font-bold shadow opacity-0 group-hover:opacity-100 transition-opacity">$12K</div>
+            <div class="h-48 bg-success rounded-t-lg"></div>
+          </div>
+          <div class="w-full bg-success/20 rounded-t-lg relative group">
+            <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-base-100 px-2 py-1 rounded text-sm font-bold shadow opacity-0 group-hover:opacity-100 transition-opacity">$15K</div>
+            <div class="h-60 bg-success rounded-t-lg"></div>
+          </div>
+          <div class="w-full bg-success/20 rounded-t-lg relative group">
+            <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-base-100 px-2 py-1 rounded text-sm font-bold shadow opacity-0 group-hover:opacity-100 transition-opacity">$18K</div>
+            <div class="h-72 bg-success rounded-t-lg"></div>
+          </div>
+          <div class="w-full bg-success/20 rounded-t-lg relative group">
+            <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-base-100 px-2 py-1 rounded text-sm font-bold shadow opacity-0 group-hover:opacity-100 transition-opacity">$14K</div>
+            <div class="h-56 bg-success rounded-t-lg"></div>
+          </div>
+        </div>
+        <div class="flex justify-between mt-4 text-sm opacity-70">
+          <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <include src="./partials/footer.html"></include>
+</div>

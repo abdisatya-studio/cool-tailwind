@@ -1,0 +1,269 @@
+<!-- Nutrition Page -->
+<div class="drawer-content flex flex-col min-h-screen">
+  <!-- Header -->
+  <include src="./partials/header.html"></include>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-4 lg:p-8">
+    <!-- Page Header -->
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
+      <div>
+        <h1 class="text-2xl lg:text-3xl font-bold mb-2">Nutrition</h1>
+        <p class="text-base opacity-70">Manage nutrition plans and meals</p>
+      </div>
+      <div class="flex gap-3">
+        <button class="btn btn-outline btn-md">
+          <i class="ph ph-file-export"></i> Export
+        </button>
+        <button class="btn btn-primary btn-md">
+          <i class="ph ph-plus"></i> Add Meal Plan
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-success/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-apple-logo text-xl text-success"></i>
+              </div>
+              <h3 class="text-2xl font-bold">89</h3>
+              <p class="text-sm opacity-70">Active Plans</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-arrow-up"></i> 10%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-warning/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-fire text-xl text-warning"></i>
+              </div>
+              <h3 class="text-2xl font-bold">4.2K</h3>
+              <p class="text-sm opacity-70">Avg Calories/Day</p>
+            </div>
+            <div class="text-right">
+              <div class="text-warning text-sm font-bold">
+                <i class="ph ph-arrow-down"></i> 2%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-primary/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-user text-xl text-primary"></i>
+              </div>
+              <h3 class="text-2xl font-bold">247</h3>
+              <p class="text-sm opacity-70">Members Tracking</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-check-circle"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-info/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-question text-xl text-info"></i>
+              </div>
+              <h3 class="text-2xl font-bold">85%</h3>
+              <p class="text-sm opacity-70">Compliance Rate</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-arrow-up"></i> 8%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nutrition Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Meal Plans -->
+      <div class="lg:col-span-2">
+        <div class="card glass-card shadow-xl mb-8">
+          <div class="card-body">
+            <h2 class="card-title text-xl mb-6">Meal Plans</h2>
+            <div class="overflow-x-auto">
+              <table class="table w-full">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Plan Type</th>
+                    <th>Calories</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                    <th>Members</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-medium">Weight Loss Plan</td>
+                    <td>Low Carb</td>
+                    <td>1500</td>
+                    <td>12 Weeks</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>45</td>
+                    <td><button class="btn btn-ghost btn-xs"><i class="ph ph-eye"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td class="font-medium">Muscle Gain Plan</td>
+                    <td>High Protein</td>
+                    <td>2800</td>
+                    <td>8 Weeks</td>
+                    <td><span class="badge badge-success">Active</span></td>
+                    <td>32</td>
+                    <td><button class="btn btn-ghost btn-xs"><i class="ph ph-eye"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td class="font-medium">Keto Diet Plan</td>
+                    <td>Keto</td>
+                    <td>1800</td>
+                    <td>4 Weeks</td>
+                    <td><span class="badge badge-warning">Expiring</span></td>
+                    <td>18</td>
+                    <td><button class="btn btn-ghost btn-xs"><i class="ph ph-eye"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td class="font-medium">Vegetarian Plan</td>
+                    <td>Vegan</td>
+                    <td>2000</td>
+                    <td>12 Weeks</td>
+                    <td><span class="badge badge-secondary">Basic</span></td>
+                    <td>28</td>
+                    <td><button class="btn btn-ghost btn-xs"><i class="ph ph-eye"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Nutrition Tips -->
+        <div class="card glass-card shadow-xl">
+          <div class="card-body">
+            <h2 class="card-title text-xl mb-6">Daily Nutrition Tips</h2>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4 p-4 bg-base-200 rounded-lg">
+                <div class="w-12 h-12 rounded-lg bg-success/20 flex items-center justify-center flex-shrink-0">
+                  <i class="ph ph-water-drop text-2xl text-success"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Hydration</h4>
+                  <p class="text-sm opacity-70">Drink 8 glasses of water daily. Start with a glass of warm water with lemon in the morning.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-base-200 rounded-lg">
+                <div class="w-12 h-12 rounded-lg bg-warning/20 flex items-center justify-center flex-shrink-0">
+                  <i class="ph ph-apple text-2xl text-warning"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">5-A-Day Rule</h4>
+                  <p class="text-sm opacity-70">Consume at least 5 servings of fruits and vegetables. Aim for a colorful plate!</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-base-200 rounded-lg">
+                <div class="w-12 h-12 rounded-lg bg-info/20 flex items-center justify-center flex-shrink-0">
+                  <i class="ph ph-weights text-2xl text-info"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-1">Protein Intake</h4>
+                  <p class="text-sm opacity-70">Consume 1.2-2g of protein per kg of body weight depending on activity level.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nutrition Goals -->
+      <div class="flex flex-col gap-6">
+        <div class="card glass-card shadow-xl">
+          <div class="card-body">
+            <h2 class="card-title text-lg mb-4">Weekly Nutrition Status</h2>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm font-medium">Water</span>
+                  <span class="text-sm font-medium">4/8 glasses</span>
+                </div>
+                <div class="progress w-full bg-base-300 rounded-full h-2">
+                  <div class="progress-bar bg-primary rounded-full h-full" style="width: 50%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm font-medium">Fruits</span>
+                  <span class="text-sm font-medium">3/5 servings</span>
+                </div>
+                <div class="progress w-full bg-base-300 rounded-full h-2">
+                  <div class="progress-bar bg-success rounded-full h-full" style="width: 60%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm font-medium">Vegetables</span>
+                  <span class="text-sm font-medium">2/5 servings</span>
+                </div>
+                <div class="progress w-full bg-base-300 rounded-full h-2">
+                  <div class="progress-bar bg-warning rounded-full h-full" style="width: 40%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card glass-card shadow-xl">
+          <div class="card-body">
+            <h2 class="card-title text-lg mb-4">Quick Tips</h2>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-2 text-sm opacity-70">
+                <i class="ph ph-check-circle text-success mt-0.5"></i>
+                <span>Meal prep on Sundays for better consistency</span>
+              </li>
+              <li class="flex items-start gap-2 text-sm opacity-70">
+                <i class="ph ph-check-circle text-success mt-0.5"></i>
+                <span>Include protein in every main meal</span>
+              </li>
+              <li class="flex items-start gap-2 text-sm opacity-70">
+                <i class="ph ph-check-circle text-success mt-0.5"></i>
+                <span>Stay consistent with hydration goals</span>
+              </li>
+              <li class="flex items-start gap-2 text-sm opacity-70">
+                <i class="ph ph-check-circle text-success mt-0.5"></i>
+                <span>Eat mindfully without distractions</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <include src="./partials/footer.html"></include>
+</div>

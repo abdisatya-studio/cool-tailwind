@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitPulse Bug Check</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --passed: #22c55e;
+      --failed: #ef4444;
+      --pending: #6b7280;
+    }
+    .test-item {
+      padding: 16px;
+      margin: 8px 0;
+      border-radius: 8px;
+      background: #f3f4f6;
+      border-left: 4px solid var(--pending);
+    }
+    .test-item.passed {
+      border-left-color: var(--passed);
+      background: #dcfce7;
+    }
+    .test-item.failed {
+      border-left-color: var(--failed);
+      background: #fee2e2;
+    }
+    .test-result {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      color: white;
+      font-size: 12px;
+    }
+    .result-passed { background: var(--passed); }
+    .result-failed { background: var(--failed); }
+    .result-pending { background: var(--pending); }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-4xl mx-auto">
+    <div class="bg-white rounded-xl shadow-lg p-8 mb-6">
+      <h1 class="text-2xl font-bold mb-2">FitPulse Bug Check</h1>
+      <p class="text-gray-600">Automated test suite for UI Component Verification</p>
+    </div>
+
+    <div id="results"></div>
+  </div>
+
+  <script>
+    const results = [];
+    
+    function test(name, fn) {
+      try {
+        const result = fn();
+        results.push({ name, passed: true, details: result || 'OK' });
+      } catch (e) {
+        results.push({ name, passed: false, details: e.message });
+      }
+      updateUI();
+    }
+    
+    function updateUI() {
+      const container = document.getElementById('results');
+      container.innerHTML = results.map(r => `
+        <div class="test-item ${r.passed ? 'passed' : 'failed'}">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="font-semibold">${r.name}</h3>
+              <p class="text-sm text-gray-600 mt-1">${r.details}</p>
+            </div>
+            <span class="test-result ${r.passed ? 'result-passed' : 'result-failed'}">${r.passed ? 'PASS' : 'FAIL'}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+    
+    test('Theme Toggle Button Exists', () => {
+      const btn = document.getElementById('theme-toggle');
+      if (!btn) throw 'Theme toggle checkbox not found';
+    });
+    
+    test('Theme Toggle Has Correct Class', () => {
+      const btn = document.getElementById('theme-toggle');
+      if (!btn.classList.contains('toggle')) throw 'Missing toggle class';
+      if (!btn.classList.contains('toggle-primary')) throw 'Missing toggle-primary class';
+    });
+    
+    test('Notifications Dropdown Button Exists', () => {
+      const btn = document.querySelector('[tabindex="0"].btn-ghost.btn-circle');
+      if (!btn) throw 'Notifications button not found';
+    });
+    
+    test('Notifications Indicator Badge Exists', () => {
+      const badge = document.querySelector('.indicator-item.badge');
+      if (!badge) throw 'Notifications badge not found';
+    });
+    
+    test('User Menu Button Exists', () => {
+      const avatar = document.querySelector('.avatar');
+      if (!avatar) throw 'User avatar button not found';
+    });
+    
+    test('User Menu Dropdown Content Exists', () => {
+      const dropdown = document.querySelector('.dropdown-content.menu');
+      if (!dropdown) throw 'User menu dropdown not found';
+    });
+    
+    test('Sidebar Drawer Toggle Input Exists', () => {
+      const toggle = document.getElementById('sidebar-drawer');
+      if (!toggle || toggle.tagName !== 'INPUT') throw 'Sidebar toggle input not found';
+    });
+    
+    test('Add Member Button Exists', () => {
+      const btn = document.querySelector('.btn.btn-primary.btn-lg');
+      if (!btn) throw 'Add Member button not found';
+    });
+    
+    test('Schedule Class Button Exists', () => {
+      const btn = document.querySelector('.btn.btn-outline.btn-lg');
+      if (!btn) throw 'Schedule Class button not found';
+    });
+    
+    test('View Full Schedule Button Exists', () => {
+      const btns = document.querySelectorAll('.btn.btn-outline.btn-sm.w-full');
+      if (btns.length < 1) throw 'View Full Schedule button not found';
+    });
+    
+    test('View All Activity Button Exists', () => {
+      const btns = document.querySelectorAll('.btn.btn-outline.btn-sm.w-full');
+      if (btns.length < 2) throw 'View All Activity button not found';
+    });
+    
+    test('Sidebar Plus Icon Button Exists', () => {
+      const btns = document.querySelectorAll('.btn.btn-square.btn-sm.btn-ghost');
+      if (btns.length < 1) throw 'Plus icon button not found';
+    });
+    
+    test('Navigation Links Exist', () => {
+      const links = document.querySelectorAll('.menu a');
+      if (links.length < 10) throw `Expected at least 10 nav links, found ${links.length}`;
+    });
+    
+    test('Logo Link Exists', () => {
+      const logo = document.querySelector('.text-xl.font-bold.text-primary');
+      if (!logo) throw 'Logo link not found';
+    });
+    
+    test('Footer Exists', () => {
+      const footer = document.querySelector('footer');
+      if (!footer) throw 'Footer not found';
+    });
+    
+    test('Stats Grid Layout', () => {
+      const stats = document.querySelector('.stats');
+      if (!stats) throw 'Stats grid not found';
+    });
+    
+    test('Dashboard Grid Layout', () => {
+      const grid = document.querySelector('.grid.grid-cols-1.lg\\:grid-cols-3');
+      if (!grid) throw 'Dashboard grid not found';
+    });
+    
+    test('Chart Card Exists', () => {
+      const card = document.querySelector('.card.bg-base-100.shadow-xl');
+      if (!card) throw 'Chart card not found';
+    });
+    
+    // Run tests
+    setTimeout(() => {
+      const passCount = results.filter(r => r.passed).length;
+      const failCount = results.length - passCount;
+      
+      document.getElementById('results').insertAdjacentHTML('afterbegin', `
+        <div class="test-item" style="border: none; background: transparent; margin-bottom: 20px;">
+          <h2 class="font-bold text-lg">Summary</h2>
+          <div class="flex gap-4 mt-4">
+            <span class="test-result result-passed">${passCount} Passed</span>
+            <span class="test-result result-failed">${failCount} Failed</span>
+          </div>
+        </div>
+      `);
+      
+      if (failCount === 0) {
+        alert('✅ All button tests passed! FitPulse is ready to use.');
+      } else {
+        alert(`⚠️ ${failCount} test(s) failed. Please review the results above.`);
+      }
+    }, 500);
+    
+    updateUI();
+  </script>
+</body>
+</html>

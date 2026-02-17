@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitPulse - Health & Fitness Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" ref>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="./src/js/main.js"></script>
+  <link rel="stylesheet" href="./dist/main.css">
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: theme('colors.base-200'); }
+    ::-webkit-scrollbar-thumb { background: theme('colors.base-300'); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: theme('colors.base-400'); }
+    
+    /* Glassmorphism */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .dark .glass-card { background: rgba(30, 41, 59, 0.7); }
+  </style>
+</head>
+<body x-data="{ 
+  page: 'dashboard', 
+  sidebarToggle: false,
+  darkMode: JSON.parse(localStorage.getItem('darkMode')) || false 
+}">
+  
+  <!-- Layout Wrapper -->
+  <div class="drawer lg:drawer-open">
+    <!-- Mobile Sidebar Overlay -->
+    <input type="checkbox" id="sidebar-drawer" class="drawer-toggle" />
+    
+    <div class="drawer-content flex flex-col min-h-screen">
+      <!-- Header -->
+      <include src="./partials/header.html"></include>
+      
+      <!-- Main Content -->
+      <main class="flex-1 p-4 lg:p-8">
+        <!-- Welcome Section -->
+        <include src="./partials/metrics.html"></include>
+
+        <!-- Dashboard Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Chart Section -->
+          <div class="lg:col-span-2">
+            <include src="./partials/chart.html"></include>
+          </div>
+
+          <!-- Sidebar Widgets -->
+          <div class="flex flex-col gap-6">
+            <include src="./partials/schedule.html"></include>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <include src="./partials/footer.html"></include>
+    </div>
+
+    <!-- Sidebar (Hidden on mobile, visible on desktop) -->
+    <div class="drawer-side z-50">
+      <label for="sidebar-drawer" class="drawer-overlay"></label>
+      <div class="menu p-4 w-64 min-h-full bg-base-200 text-base-content">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 mb-8 mt-2">
+          <div class="w-10 h-10 rounded-lg bg-primary text-primary-content flex items-center justify-center">
+            <i class="ph-bold ph-heart text-2xl"></i>
+          </div>
+          <span class="text-xl font-bold">FitPulse</span>
+        </div>
+
+        <!-- Navigation -->
+        <div class="mb-6">
+          <h3 class="text-xs font-bold uppercase opacity-50 mb-3 tracking-wider">Main</h3>
+          <ul class="space-y-1">
+            <li><a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 hover:bg-primary/30 transition"><i class="ph-bold ph-squares-four"></i> Dashboard</a></li>
+            <li><a href="members.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-300 transition"><i class="ph-bold ph-users"></i> Members</a></li>
+            <li><a href="workouts.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-300 transition"><i class="ph-bold ph-running"></i> Workouts</a></li>
+            <li><a href="nutrition.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-300 transition"><i class="ph-bold ph-apple-logo"></i> Nutrition</a></li>
+          </ul>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="text-xs font-bold uppercase opacity-50 mb-3 tracking-wider">Management</h3>
+          <ul class="space-y-1">
+            <li><a href="schedule.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-300 transition"><i class="ph-bold ph-calendar-blank"></i> Schedule</a></li>
+            <li><a href="payments.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-300 transition"><i class="ph-bold ph-credit-card"></i> Payments</a></li>
+            <li><a href="analytics.html" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-base-300 transition"><i class="ph-bold ph-chart-line-up"></i> Analytics</a></li>
+          </ul>
+        </div>
+        
+        <div class="divider"></div>
+        <div class="flex items-center gap-3 p-3 bg-base-300 rounded-lg">
+          <div class="w-10 rounded-full bg-primary text-primary-content flex items-center justify-center font-bold">JD</div>
+          <div class="flex-1 min-w-0">
+            <p class="font-semibold truncate">John Doe</p>
+            <p class="text-xs opacity-70 truncate">Trainer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    
+    themeToggle.addEventListener('change', function() {
+      if (this.checked) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Restore theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      html.classList.add('dark');
+      themeToggle.checked = false;
+    }
+
+    // Mobile sidebar toggle
+    const sidebarDrawer = document.getElementById('sidebar-drawer');
+    sidebarDrawer.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

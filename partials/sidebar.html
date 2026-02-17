@@ -1,0 +1,145 @@
+<!-- Sidebar Component -->
+<aside
+  :class="sidebarToggle ? 'translate-x-0 lg:w-[90px]' : '-translate-x-full lg:w-[290px]'"
+  class="sidebar fixed left-0 top-0 z-9999 flex h-screen flex-col overflow-y-hidden border-r border-gray-200 bg-white px-5 dark:border-gray-800 dark:bg-gray-900 lg:static lg:translate-x-0"
+>
+  <!-- SIDEBAR HEADER -->
+  <div
+    :class="sidebarToggle ? 'justify-center' : 'justify-between'"
+    class="flex items-center gap-2 pt-8 sidebar-header pb-7"
+  >
+    <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-primary">
+      <i class="ph-bold ph-heart text-2xl"></i>
+      <span class="logo" :class="sidebarToggle ? 'hidden' : ''">FitPulse</span>
+      <i class="ph-bold ph-heart logo-icon" :class="sidebarToggle ? 'lg:block' : 'hidden'"></i>
+    </a>
+  </div>
+  <!-- SIDEBAR HEADER -->
+
+  <div class="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
+    <!-- Sidebar Menu -->
+    <nav x-data="{selected: $persist('Dashboard')}">
+      <!-- Menu Group -->
+      <div>
+        <h3 class="mb-4 text-xs uppercase leading-[20px] text-gray-400">
+          <span class="menu-group-title" :class="sidebarToggle ? 'lg:hidden' : ''">MENU</span>
+        </h3>
+
+        <ul class="flex flex-col gap-4 mb-6">
+          <!-- Dashboard -->
+          <li>
+            <a
+              href="index.html"
+              class="menu-item group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-gray-100 dark:hover:bg-gray-800"
+              :class="page === 'dashboard' ? 'bg-gray-100 text-primary dark:bg-gray-800' : 'text-gray-600 dark:text-gray-400'"
+            >
+              <i class="ph-bold ph-squares-four"></i>
+              <span :class="sidebarToggle ? 'lg:hidden' : ''">Dashboard</span>
+            </a>
+          </li>
+
+          <!-- Members -->
+          <li>
+            <a
+              href="members.html"
+              class="menu-item group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-gray-100 dark:hover:bg-gray-800"
+              :class="selected === 'Members' ? 'bg-gray-100 text-primary dark:bg-gray-800' : 'text-gray-600 dark:text-gray-400'"
+            >
+              <i class="ph-bold ph-users"></i>
+              <span :class="sidebarToggle ? 'lg:hidden' : ''">Members</span>
+            </a>
+          </li>
+
+          <!-- Workouts -->
+          <li>
+            <a
+              href="workouts.html"
+              class="menu-item group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-gray-100 dark:hover:bg-gray-800"
+              :class="selected === 'Workouts' ? 'bg-gray-100 text-primary dark:bg-gray-800' : 'text-gray-600 dark:text-gray-400'"
+            >
+              <i class="ph-bold ph-running"></i>
+              <span :class="sidebarToggle ? 'lg:hidden' : ''">Workouts</span>
+            </a>
+          </li>
+
+          <!-- Nutrition -->
+          <li>
+            <a
+              href="nutrition.html"
+              class="menu-item group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-gray-100 dark:hover:bg-gray-800"
+              :class="selected === 'Nutrition' ? 'bg-gray-100 text-primary dark:bg-gray-800' : 'text-gray-600 dark:text-gray-400'"
+            >
+              <i class="ph-bold ph-apple-logo"></i>
+              <span :class="sidebarToggle ? 'lg:hidden' : ''">Nutrition</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Management -->
+      <div>
+        <h3 class="mb-4 text-xs uppercase leading-[20px] text-gray-400">
+          <span class="menu-group-title" :class="sidebarToggle ? 'lg:hidden' : ''">Management</span>
+        </h3>
+
+        <ul class="flex flex-col gap-4 mb-6">
+          <!-- Schedule -->
+          <li>
+            <a
+              href="schedule.html"
+              class="menu-item group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-gray-100 dark:hover:bg-gray-800"
+              :class="selected === 'Schedule' ? 'bg-gray-100 text-primary dark:bg-gray-800' : 'text-gray-600 dark:text-gray-400'"
+            >
+              <i class="ph-bold ph-calendar-blank"></i>
+              <span :class="sidebarToggle ? 'lg:hidden' : ''">Schedule</span>
+            </a>
+          </li>
+
+          <!-- Payments -->
+          <li>
+            <a
+              href="payments.html"
+              class="menu-item group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-gray-100 dark:hover:bg-gray-800"
+              :class="selected === 'Payments' ? 'bg-gray-100 text-primary dark:bg-gray-800' : 'text-gray-600 dark:text-gray-400'"
+            >
+              <i class="ph-bold ph-credit-card"></i>
+              <span :class="sidebarToggle ? 'lg:hidden' : ''">Payments</span>
+            </a>
+          </li>
+
+          <!-- Analytics -->
+          <li>
+            <a
+              href="analytics.html"
+              class="menu-item group flex items-center gap-3 rounded-lg px-3 py-2 transition hover:bg-gray-100 dark:hover:bg-gray-800"
+              :class="selected === 'Analytics' ? 'bg-gray-100 text-primary dark:bg-gray-800' : 'text-gray-600 dark:text-gray-400'"
+            >
+              <i class="ph-bold ph-chart-line-up"></i>
+              <span :class="sidebarToggle ? 'lg:hidden' : ''">Analytics</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- User Info -->
+  <div class="divider"></div>
+  <div class="flex items-center gap-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+    <div class="w-10 rounded-full bg-primary text-primary-content flex items-center justify-center font-bold text-sm">
+      JD
+    </div>
+    <div class="flex-1 min-w-0" :class="sidebarToggle ? 'lg:hidden' : ''">
+      <p class="font-semibold truncate">John Doe</p>
+      <p class="text-xs opacity-70 truncate">Trainer</p>
+    </div>
+  </div>
+
+  <!-- Sidebar Toggle Button -->
+  <button
+    @click="sidebarToggle = !sidebarToggle"
+    class="absolute -right-12 top-1/2 z-9999 hidden h-10 w-8 items-center justify-center rounded-l-lg bg-primary text-white shadow-lg lg:flex"
+  >
+    <i class="ph-bold ph-caret-left"></i>
+  </button>
+</aside>

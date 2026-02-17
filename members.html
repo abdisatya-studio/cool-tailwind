@@ -1,0 +1,224 @@
+<!-- Members Page -->
+<div class="drawer-content flex flex-col min-h-screen">
+  <!-- Header -->
+  <include src="./partials/header.html"></include>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-4 lg:p-8">
+    <!-- Page Header -->
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
+      <div>
+        <h1 class="text-2xl lg:text-3xl font-bold mb-2">Members</h1>
+        <p class="text-base opacity-70">Manage all fitness center members</p>
+      </div>
+      <div class="flex gap-3">
+        <button class="btn btn-outline btn-md">
+          <i class="ph ph-file-export"></i> Export
+        </button>
+        <button class="btn btn-primary btn-md">
+          <i class="ph ph-plus"></i> Add Member
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-primary/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-users text-xl text-primary"></i>
+              </div>
+              <h3 class="text-2xl font-bold">247</h3>
+              <p class="text-sm opacity-70">Total Members</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-arrow-up"></i> 12%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-primary/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-check-circle text-xl text-success"></i>
+              </div>
+              <h3 class="text-2xl font-bold">189</h3>
+              <p class="text-sm opacity-70">Active Now</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-arrow-up"></i> 8%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-error/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-warning text-xl text-error"></i>
+              </div>
+              <h3 class="text-2xl font-bold">24</h3>
+              <p class="text-sm opacity-70">Expiring Soon</p>
+            </div>
+            <div class="text-right">
+              <div class="text-error text-sm font-bold">
+                <i class="ph ph-arrow-down"></i> 3%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-info/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-dollar-simple text-xl text-info"></i>
+              </div>
+              <h3 class="text-2xl font-bold">$12.4k</h3>
+              <p class="text-sm opacity-70">Monthly Revenue</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-arrow-up"></i> 8%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Members Table -->
+    <div class="card glass-card shadow-xl mb-8">
+      <div class="card-body">
+        <div class="flex flex-col sm:flex-row justify-between gap-4 mb-6">
+          <div class="form-control">
+            <input type="text" placeholder="Search members..." class="input input-bordered w-full sm:w-64" />
+          </div>
+          <div class="flex gap-2">
+            <select class="select select-bordered w-full sm:w-auto">
+              <option>All Status</option>
+              <option>Active</option>
+              <option>Expired</option>
+              <option>Cancelled</option>
+            </select>
+            <select class="select select-bordered w-full sm:w-auto">
+              <option>All Plans</option>
+              <option>Basic</option>
+              <option>Premium</option>
+              <option>Elite</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="table w-full">
+            <thead>
+              <tr>
+                <th><input type="checkbox" class="checkbox" /></th>
+                <th>Member</th>
+                <th>Plan</th>
+                <th>Status</th>
+                <th>Joined</th>
+                <th>Expiry</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td class="font-medium">Sarah Chen</td>
+                <td>Premium</td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td>Jan 15, 2026</td>
+                <td>Jan 15, 2027</td>
+                <td>
+                  <button class="btn btn-ghost btn-xs">
+                    <i class="ph ph-eye"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-xs">
+                    <i class="ph ph-pencil"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td class="font-medium">Mike Ross</td>
+                <td>Basic</td>
+                <td><span class="badge badge-success">Active</span></td>
+                <td>Jan 20, 2026</td>
+                <td>Jan 20, 2027</td>
+                <td>
+                  <button class="btn btn-ghost btn-xs">
+                    <i class="ph ph-eye"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-xs">
+                    <i class="ph ph-pencil"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td class="font-medium">Emma Watson</td>
+                <td>Elite</td>
+                <td><span class="badge badge-warning">Expiring</span></td>
+                <td>Feb 1, 2025</td>
+                <td>Feb 1, 2026</td>
+                <td>
+                  <button class="btn btn-ghost btn-xs">
+                    <i class="ph ph-eye"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-xs">
+                    <i class="ph ph-pencil"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td class="font-medium">John Smith</td>
+                <td>Basic</td>
+                <td><span class="badge badge-error">Expired</span></td>
+                <td>Dec 1, 2024</td>
+                <td>Dec 1, 2025</td>
+                <td>
+                  <button class="btn btn-ghost btn-xs">
+                    <i class="ph ph-eye"></i>
+                  </button>
+                  <button class="btn btn-ghost btn-xs">
+                    <i class="ph ph-pencil"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex justify-between items-center mt-6">
+          <p class="text-sm opacity-70">Showing 1-4 of 247 members</p>
+          <div class="join">
+            <button class="join-item btn">«</button>
+            <button class="join-item btn btn-active">1</button>
+            <button class="join-item btn">2</button>
+            <button class="join-item btn">3</button>
+            <button class="join-item btn">»</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <include src="./partials/footer.html"></include>
+</div>

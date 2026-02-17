@@ -1,0 +1,133 @@
+<!-- Test Suite for FitPulse -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitPulse - Test Suite</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .test-item { padding: 12px; margin: 6px 0; border-radius: 6px; background: #f3f4f6; border-left: 4px solid #6b7280; }
+    .test-item.passed { border-left-color: #22c55e; background: #dcfce7; }
+    .test-item.failed { border-left-color: #ef4444; background: #fee2e2; }
+    .result { display: inline-block; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: white; font-size: 11px; }
+    .passed { background: #22c55e; } .failed { background: #ef4444; }
+  </style>
+</head>
+<body class="p-6 max-w-4xl mx-auto">
+  <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+    <h1 class="text-2xl font-bold mb-2">FitPulse Test Suite</h1>
+    <p class="text-gray-600">Button, Toggle & Filter Verification</p>
+  </div>
+  
+  <div id="results"></div>
+
+  <script>
+    const results = [];
+    
+    function test(name, fn) {
+      try { 
+        const r = fn();
+        results.push({ name, passed: true, details: r || 'OK' });
+      } catch(e) { 
+        results.push({ name, passed: false, details: e.message }); 
+      }
+      updateUI();
+    }
+    
+    function updateUI() {
+      document.getElementById('results').innerHTML = results.map(r => `
+        <div class="test-item ${r.passed ? 'passed' : 'failed'}">
+          <div class="flex justify-between"><div><h3>${r.name}</h3><p class="text-sm">${r.details}</p></div>
+          <span class="result ${r.passed ? 'passed' : 'failed'}">${r.passed ? 'PASS' : 'FAIL'}</span></div>
+        </div>`).join('');
+    }
+
+    // Test 1: Theme Toggle Checkbox
+    test('Theme Toggle Checkbox', () => {
+      const t = document.getElementById('theme-toggle');
+      if (!t) throw 'Not found';
+      if (!t.classList.contains('toggle')) throw 'Missing toggle class';
+    });
+
+    // Test 2: Sidebar Toggle
+    test('Sidebar Drawer Toggle', () => {
+      const d = document.getElementById('sidebar-drawer');
+      if (!d) throw 'Not found';
+      if (d.tagName !== 'INPUT') throw 'Expected INPUT';
+    });
+
+    // Test 3: Search Input
+    test('Search Input Fields', () => {
+      const s = document.querySelectorAll('input[type="text"]');
+      if (s.length < 2) throw `Expected 2+ inputs, got ${s.length}`;
+    });
+
+    // Test 4: Dropdown Buttons
+    test('Notifications Dropdown', () => {
+      const btn = document.querySelector('.header .btn-ghost.btn-circle');
+      if (!btn) throw 'Button not found';
+    });
+
+    // Test 5: Tab Buttons
+    test('Chart Tabs', () => {
+      const tabs = document.querySelectorAll('.tab');
+      if (tabs.length < 3) throw `Expected 3 tabs, got ${tabs.length}`;
+    });
+
+    // Test 6: Filter Selects
+    test('Filter Select Dropdowns', () => {
+      const selects = document.querySelectorAll('select');
+      if (selects.length < 3) throw `Expected 3+ selects, got ${selects.length}`;
+    });
+
+    // Test 7: Add Member Button
+    test('Add Member Button', () => {
+      const btn = document.querySelector('.btn-primary .ph-plus');
+      if (!btn) throw 'Button not found';
+    });
+
+    // Test 8: Export Buttons
+    test('Export Buttons', () => {
+      const btns = document.querySelectorAll('.ph-file-export');
+      if (btns.length < 3) throw `Expected 3+ export buttons, got ${btns.length}`;
+    });
+
+    // Test 9: View Details Buttons
+    test('View Details Buttons', () => {
+      const btns = document.querySelectorAll('.btn-outline.btn-sm');
+      if (btns.length < 4) throw `Expected 4+ details buttons, got ${btns.length}`;
+    });
+
+    // Test 10: Calendar Toggle
+    test('Calendar View Button', () => {
+      const btn = document.querySelector('.ph-calendar');
+      if (!btn) throw 'Button not found';
+    });
+
+    // Summary
+    setTimeout(() => {
+      const pass = results.filter(r => r.passed).length;
+      const fail = results.length - pass;
+      document.getElementById('results').insertAdjacentHTML('afterbegin', `
+        <div class="test-item" style="border:none;background:transparent">
+          <h2 class="font-bold text-lg">Summary</h2>
+          <div class="flex gap-4 mt-3">
+            <span class="result passed">${pass} Passed</span>
+            <span class="result failed">${fail} Failed</span>
+          </div>
+        </div>`);
+      
+      if (fail === 0) {
+        alert('✅ All buttons, toggles & filters working!');
+      } else {
+        alert(`${fail} tests failed`);
+      }
+    }, 500);
+
+    updateUI();
+  </script>
+</body>
+</html>

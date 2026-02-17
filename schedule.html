@@ -1,0 +1,248 @@
+<!-- Schedule Page -->
+<div class="drawer-content flex flex-col min-h-screen">
+  <!-- Header -->
+  <include src="./partials/header.html"></include>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-4 lg:p-8">
+    <!-- Page Header -->
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
+      <div>
+        <h1 class="text-2xl lg:text-3xl font-bold mb-2">Schedule</h1>
+        <p class="text-base opacity-70">Manage workout classes and schedules</p>
+      </div>
+      <div class="flex gap-3">
+        <button class="btn btn-outline btn-md">
+          <i class="ph ph-calendar"></i> View Calendar
+        </button>
+        <button class="btn btn-primary btn-md">
+          <i class="ph ph-plus"></i> Add Class
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-primary/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-calendar text-xl text-primary"></i>
+              </div>
+              <h3 class="text-2xl font-bold">156</h3>
+              <p class="text-sm opacity-70">Monthly Classes</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-arrow-up"></i> 5%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-success/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-check-circle text-xl text-success"></i>
+              </div>
+              <h3 class="text-2xl font-bold">92%</h3>
+              <p class="text-sm opacity-70">Attendance Rate</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-arrow-up"></i> 8%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-warning/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-user text-xl text-warning"></i>
+              </div>
+              <h3 class="text-2xl font-bold">8</h3>
+              <p class="text-sm opacity-70">Classes Today</p>
+            </div>
+            <div class="text-right">
+              <div class="text-warning text-sm font-bold">
+                <i class="ph ph-check-circle"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card glass-card shadow-xl">
+        <div class="card-body">
+          <div class="flex items-start justify-between">
+            <div>
+              <div class="p-2 bg-info/20 rounded-lg inline-block mb-2">
+                <i class="ph ph-users text-xl text-info"></i>
+              </div>
+              <h3 class="text-2xl font-bold">142</h3>
+              <p class="text-sm opacity-70">Active Members</p>
+            </div>
+            <div class="text-right">
+              <div class="text-success text-sm font-bold">
+                <i class="ph ph-arrow-up"></i> 3%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weekly Schedule -->
+    <div class="card glass-card shadow-xl mb-8">
+      <div class="card-body">
+        <h2 class="card-title text-xl mb-6">Weekly Schedule</h2>
+        
+        <div class="grid grid-cols-7 gap-4 mb-8">
+          <div class="text-center">
+            <div class="text-sm font-bold text-primary mb-2">Mon</div>
+            <div class="text-2xl font-bold">17</div>
+          </div>
+          <div class="text-center">
+            <div class="text-sm font-bold text-primary mb-2">Tue</div>
+            <div class="text-2xl font-bold">18</div>
+          </div>
+          <div class="text-center">
+            <div class="text-sm font-bold text-primary mb-2">Wed</div>
+            <div class="text-2xl font-bold">19</div>
+          </div>
+          <div class="text-center">
+            <div class="text-sm font-bold text-primary mb-2">Thu</div>
+            <div class="text-2xl font-bold">20</div>
+          </div>
+          <div class="text-center">
+            <div class="text-sm font-bold text-primary mb-2">Fri</div>
+            <div class="text-2xl font-bold">21</div>
+          </div>
+          <div class="text-center">
+            <div class="text-sm font-bold text-success mb-2">Sat</div>
+            <div class="text-2xl font-bold">22</div>
+          </div>
+          <div class="text-center">
+            <div class="text-sm font-bold text-error mb-2">Sun</div>
+            <div class="text-2xl font-bold">23</div>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Monday Classes -->
+          <div class="border-l-4 border-primary pl-4 py-2">
+            <div class="flex justify-between items-center">
+              <h3 class="font-bold">Monday Classes</h3>
+              <span class="badge badge-primary">6 Classes</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+              <div class="p-3 bg-base-200 rounded-lg">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="badge badge-sm badge-success">8:00 AM</span>
+                  <span class="badge badge-sm badge-outline">Yoga</span>
+                </div>
+                <h4 class="font-semibold">Morning Yoga Flow</h4>
+                <p class="text-sm opacity-70 mt-1">Sarah</p>
+                <p class="text-xs opacity-50 mt-1">18/25 spots</p>
+              </div>
+              <div class="p-3 bg-base-200 rounded-lg">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="badge badge-sm badge-success">5:00 PM</span>
+                  <span class="badge badge-sm badge-outline">Cycling</span>
+                </div>
+                <h4 class="font-semibold">Spin Class</h4>
+                <p class="text-sm opacity-70 mt-1">Tom</p>
+                <p class="text-xs opacity-50 mt-1">10/15 spots</p>
+              </div>
+              <div class="p-3 bg-base-200 rounded-lg">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="badge badge-sm badge-success">7:00 PM</span>
+                  <span class="badge badge-sm badge-outline"> HIIT</span>
+                </div>
+                <h4 class="font-semibold">HIIT Training</h4>
+                <p class="text-sm opacity-70 mt-1">Mike</p>
+                <p class="text-xs opacity-50 mt-1">12/20 spots</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tuesday Classes -->
+          <div class="border-l-4 border-warning pl-4 py-2">
+            <div class="flex justify-between items-center">
+              <h3 class="font-bold">Tuesday Classes</h3>
+              <span class="badge badge-warning">5 Classes</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div class="p-3 bg-base-200 rounded-lg">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="badge badge-sm badge-success">8:00 AM</span>
+                  <span class="badge badge-sm badge-outline">Strength</span>
+                </div>
+                <h4 class="font-semibold">Strength Basics</h4>
+                <p class="text-sm opacity-70 mt-1">Emma</p>
+                <p class="text-xs opacity-50 mt-1">15/15 spots</p>
+              </div>
+              <div class="p-3 bg-base-200 rounded-lg">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="badge badge-sm badge-success">4:00 PM</span>
+                  <span class="badge badge-sm badge-outline">Functional</span>
+                </div>
+                <h4 class="font-semibold">Functional Training</h4>
+                <p class="text-sm opacity-70 mt-1">Alex</p>
+                <p class="text-xs opacity-50 mt-1">10/15 spots</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wednesday Classes -->
+          <div class="border-l-4 border-success pl-4 py-2">
+            <div class="flex justify-between items-center">
+              <h3 class="font-bold">Wednesday Classes</h3>
+              <span class="badge badge-success">7 Classes</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+              <div class="p-3 bg-base-200 rounded-lg">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="badge badge-sm badge-success">7:00 AM</span>
+                  <span class="badge badge-sm badge-outline">Yoga</span>
+                </div>
+                <h4 class="font-semibold">Vinyasa Yoga</h4>
+                <p class="text-sm opacity-70 mt-1">Lisa</p>
+                <p class="text-xs opacity-50 mt-1">20/25 spots</p>
+              </div>
+              <div class="p-3 bg-base-200 rounded-lg">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="badge badge-sm badge-success">10:00 AM</span>
+                  <span class="badge badge-sm badge-outline">HIIT</span>
+                </div>
+                <h4 class="font-semibold">HIIT Training</h4>
+                <p class="text-sm opacity-70 mt-1">Mike</p>
+                <p class="text-xs opacity-50 mt-1">15/20 spots</p>
+              </div>
+              <div class="p-3 bg-base-200 rounded-lg">
+                <div class="flex justify-between items-start mb-2">
+                  <span class="badge badge-sm badge-success">6:00 PM</span>
+                  <span class="badge badge-sm badge-outline">Cycling</span>
+                </div>
+                <h4 class="font-semibold">Spin Class</h4>
+                <p class="text-sm opacity-70 mt-1">Tom</p>
+                <p class="text-xs opacity-50 mt-1">12/15 spots</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <include src="./partials/footer.html"></include>
+</div>

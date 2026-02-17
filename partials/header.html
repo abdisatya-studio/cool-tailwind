@@ -1,0 +1,78 @@
+<!-- Header Component -->
+<header class="navbar bg-base-100 border-b border-base-300 px-4 lg:px-8">
+  <div class="flex-none lg:hidden">
+    <label for="sidebar-drawer" class="btn btn-square btn-ghost">
+      <i class="ph-bold ph-list text-xl"></i>
+    </label>
+  </div>
+
+  <div class="flex-1">
+    <a href="index.html" class="text-lg lg:text-xl font-bold text-primary flex items-center gap-2">
+      <i class="ph-bold ph-heart text-lg lg:text-xl"></i>
+      <span>FitPulse</span>
+    </a>
+  </div>
+
+  <div class="flex-none gap-1 lg:gap-2 items-center">
+    <!-- Search -->
+    <div class="form-control">
+      <input type="text" placeholder="Search..." class="input input-ghost w-24 lg:w-48 bg-base-200 focus:bg-base-100" />
+    </div>
+
+    <!-- Theme Toggle -->
+    <div class="form-control">
+      <label class="label cursor-pointer gap-2">
+        <span class="label-text"><i class="ph ph-moon text-lg"></i></span>
+        <input type="checkbox" id="theme-toggle" class="toggle toggle-primary" checked />
+        <span class="label-text"><i class="ph ph-sun text-lg"></i></span>
+      </label>
+    </div>
+
+    <!-- Notifications -->
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-circle relative">
+        <i class="ph-bold ph-bell text-xl"></i>
+        <span class="indicator-item badge badge-secondary badge-sm">2</span>
+      </label>
+      <div class="dropdown-content card compact shadow-lg w-80 mt-4 bg-base-100 border border-base-300 z-50">
+        <div class="card-body">
+          <h3 class="font-bold text-lg mb-2">Notifications</h3>
+          <div class="flex flex-col gap-2 max-h-60 overflow-y-auto">
+            <div class="alert alert-info shadow-sm">
+              <div class="flex items-center gap-3">
+                <i class="ph ph-user-plus text-xl text-info"></i>
+                <div class="flex-1 min-w-0">
+                  <p class="font-semibold text-sm">Sarah Chen joined</p>
+                  <p class="text-xs text-info-content">2 minutes ago</p>
+                </div>
+              </div>
+            </div>
+            <div class="alert alert-success shadow-sm">
+              <div class="flex items-center gap-3">
+                <i class="ph ph-currency-dollar text-xl text-success"></i>
+                <div class="flex-1 min-w-0">
+                  <p class="font-semibold text-sm">Payment received</p>
+                  <p class="text-xs text-success-content">1 hour ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Menu -->
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+        <div class="w-10 rounded-full bg-primary text-primary-content flex items-center justify-center font-bold text-sm">
+          JD
+        </div>
+      </label>
+      <ul class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-4 z-50">
+        <li><a href="#" class="font-medium text-sm"><i class="ph ph-user mr-2"></i> Profile</a></li>
+        <li><a href="#" class="font-medium text-sm"><i class="ph ph-gear mr-2"></i> Settings</a></li>
+        <li><a href="#" class="font-medium text-sm text-error"><i class="ph ph-sign-out mr-2"></i> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
