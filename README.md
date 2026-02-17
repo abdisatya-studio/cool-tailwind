@@ -147,25 +147,6 @@ Modify partials in `partials/` directory.
 
 ---
 
-## Browser Support
-
-| Browser | Version |
-|---------|---------|
-| Chrome | ✅ Latest |
-| Firefox | ✅ Latest |
-| Safari | ✅ Latest |
-| Edge | ✅ Latest |
-
----
-
-## Documentation
-
-- 📖 **Full Guide** - See README (this file)
-- 📸 **Screenshots** - See [docs/SCREENSHOTS.md](./docs/SCREENSHOTS.md)
-- 📝 **Status** - See [docs/STATUS.md](./docs/STATUS.md)
-
----
-
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
@@ -178,19 +159,6 @@ This project is open source and available under the [MIT License](LICENSE).
 - Built with Tailwind CSS and DaisyUI
 - Icons by [Phosphor Icons](https://phosphoricons.com/)
 - Fonts: [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans)
-
----
-
-## Author
-
-**Abdi Satya**
-- GitHub: [@abdisatya-studio](https://github.com/abdisatya-studio)
-
----
-
-## Support
-
-If you find this project helpful, please consider giving it a ⭐ on GitHub!
 
 ---
 
